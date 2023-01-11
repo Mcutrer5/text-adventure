@@ -14,13 +14,6 @@ For example to run `main.rs`, run
 $ cargo build
 $ cargo run
 ```
-Otherwise to run `example.rs`, run
-```bash
-$ cargo build
-$ cargo run --example example.rs
-```
-
-Examples can be found in the `examples` directory
 
 ### Documentation
 
