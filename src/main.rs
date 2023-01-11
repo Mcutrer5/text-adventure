@@ -5,14 +5,6 @@ mod graphics;
 
 #[allow(dead_code)]
 
-#[derive(Debug)]
-struct Guard {
-    name: String,
-    health: i32,
-    attack: i32,
-    defense: i32,
-}
-
 // Function that causes the text to be printed character by character
 fn scroll_print(text : &str, wait_time: u64, new_line: bool) {
     for c in text.chars() {
@@ -101,7 +93,6 @@ fn blissful_ignorance_of_illusion_room() {
         scroll_print("You decide to leave the chest alone and walk to the door.", 50, true);
         guard();
     }
-
 }
 
 fn open_chest(items: Vec<&str>) {
@@ -160,14 +151,14 @@ fn painful_truth_of_reality_room(name: String) {
         scroll_print("You fight and you die.", 50, true);
         scroll_print("I mean really what were you expecting? Actually hold on.", 50, true);
         let alt_ending = 
-            "You fight and you die. But you're a hero and you die with honor.\n
-            Your family is proud of you and you're remembered as a hero.\n
-            The monster will soon be defeated by somebody who was smart enough to\n
-            come in with a gun and shoot it in the head.\n
-            I mean really what were you expecting? A bunch of sewer rats in a\n
-            trench coat?\n
-            Nevertheless, you died a hero and that's what matters.\n
-            The end.";
+        "You fight and you die. But you're a hero and you die with honor.\n
+        Your family is proud of you and you're remembered as a hero.\n
+        The monster will soon be defeated by somebody who was smart enough to\n
+        come in with a gun and shoot it in the head.\n
+        I mean really what were you expecting? A bunch of sewer rats in a\n
+        trench coat?\n
+        Nevertheless, you died a hero and that's what matters.\n
+        The end.";
         scroll_print(alt_ending, 10, true);
         let reason = "you became a delicious snack. \n\n...Not that kind of snack.";
         you_died(reason);
@@ -233,6 +224,4 @@ fn main() {
     scroll_print("The End", 100, true);
     let end_text = format!("You have reached the end of the game. Thanks {} for playing!", &_name);
     scroll_print(end_text.as_str(), 50, true);
-
 }
-
