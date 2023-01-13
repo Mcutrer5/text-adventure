@@ -1,0 +1,41 @@
+{
+    "rooms": {
+        "entrance": {
+            "alias": "Start",
+            "dialogue": {
+                "narrator": {
+                    "get_name": [
+                        "What is your name? > ", 
+                        "You didn't enter a name so I'm just going to call you !alt_name"
+
+                    ],
+                    "begin": "You wake up in a room. There is a door to your left and a door to your right. Which door do you choose?"
+
+                }
+            }
+        },
+        "left": {
+            "alias": "Blissful Ignorance of Illusion Room",
+            "dialogue": {
+                "narrator": {
+
+                }, 
+                "guard": {
+
+                }
+            }
+                
+        },
+        "right": {
+            "alias": "Painful Truth of Reality Room",
+            "dialogue": {
+                "narrator": {
+
+                }, 
+                "monster": {
+
+                }
+            }
+        }
+    }
+}

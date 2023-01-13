@@ -1,7 +1,12 @@
 use std::{thread, time};
 use std::io::{stdout, stdin, Write};
 
+use serde_json::Value;
+
 mod graphics;
+mod scrollprint;
+mod dialogue;
+mod util;
 
 #[allow(dead_code)]
 
@@ -187,11 +192,14 @@ fn start_adventure(name: String) {
     }
 }
 
-fn get_name() -> String {
-    let name = input("What is your name? > ");
-    let alt_name = "Furry Yiff :3";
+fn get_name(get_name : &Value) -> String {
+    let mut _t = get_name[0].as_str().unwrap();
+    let name = input(_t);
+    let alt_name = "Joseph";
     if name == "" {
-        scroll_print("You didn't enter a name so I'm just going to call you Furry Yiff :3", 50, true);
+        _t = get_name[1].as_str().unwrap();
+        scroll_print(_t.replace("!alt_name", alt_name).as_str(), 100, true);
+        // scroll_print(alt_name, 50, false);
         return alt_name.to_string();
     }
     return name;
@@ -217,8 +225,16 @@ fn input(msg : &str) -> String {
 
 fn main() {
     // this statement clears the terminal
+    let d_ = dialogue::file_read();
     print!("{}[2J", 27 as char);
-    let player_name = get_name();
+    
+    // leaving this here as an example of how to use the dialogue file
+    // looking for a better way to access the json contents
+    //let intro = d_["rooms"]["entrance"]["dialogue"]["narrator"]["get_name"].as_str().unwrap();
+    // println!("{}", intro.replace("a door", "not a door"));
+    
+    // let player_name = get_name(&d_["rooms"]["entrance"]["dialogue"]["narrator"]["get_name"]);
+    let player_name = util::get_name(&d_["rooms"]["entrance"]["dialogue"]["narrator"]["get_name"]);
     let _name = player_name.clone();
     start_adventure(player_name);
     scroll_print("The End", 100, true);
