@@ -7,14 +7,10 @@ Original: https://github.com/codinggrace/text_based_adventure_game/blob/master/g
 
 ### How to Run
 
-To run a solution: compile the crate, and run the corresponding example
+To run a solution: compile the crate and run
 
-For example to run `main.rs`, run
+To run `main.rs`, run
 ```bash
 $ cargo build
 $ cargo run
 ```
-
-### Documentation
-
-To view documentation, run `cargo doc --open`
